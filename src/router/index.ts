@@ -32,8 +32,10 @@ router.beforeEach((to, from, next) => {
 	if (to.name === 'Login') {
 		if (!store.getters.isAuth) {
 			next();
-		} else {
+		} else if (from.name) {
 			next(false);
+		} else {
+			next('/');
 		}
 	} else {
 		if (!store.getters.isAuth) {

@@ -19,7 +19,7 @@ const getters = {
 	 * 是否已授权
 	 */
 	isAuth(state: State): boolean {
-		return !!state.token;
+		return !!state.token.replace('Bearer ', '');
 	},
 };
 

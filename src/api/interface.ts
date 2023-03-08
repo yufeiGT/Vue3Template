@@ -11,10 +11,6 @@ export interface UserInfo {
 	 */
 	username: string;
 	/**
-	 * 昵称
-	 */
-	nickname: string;
-	/**
 	 * 用户令牌
 	 */
 	token: string;

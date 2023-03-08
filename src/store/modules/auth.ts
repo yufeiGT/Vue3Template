@@ -19,7 +19,7 @@ const getters = {
 	 * 是否已授权
 	 */
 	isAuth(state: State): boolean {
-		return !!state.token.replace('Bearer ', '');
+		return !!state.token;
 	},
 };
 
@@ -30,18 +30,16 @@ const mutations = {
 	setAuthData(state: State, value: UserInfo): void {
 		state.id = value.id;
 		state.username = value.username;
-		state.nickname = value.nickname;
-		state.token = `Bearer ${value.token}`;
-		launcher.setAuthorization(value.token);
+		state.token = value.token;
+		launcher.setAuthorization(state.token);
 	},
 	/**
 	 * 清空授权数据
 	 */
 	clearAuthData(state: State): void {
-		const { id, username, nickname, token } = getUserInfo();
+		const { id, username, token } = getUserInfo();
 		state.id = id;
 		state.username = username;
-		state.nickname = nickname;
 		state.token = token;
 		launcher.setAuthorization('');
 	},

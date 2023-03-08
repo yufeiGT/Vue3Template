@@ -38,6 +38,6 @@ export const launcher = new Launcher({
 	},
 });
 
-export * from './interface';
+export * as Interface from './interface';
 export * as DefaultResponse from './defaultResponse';
 export * from './package';

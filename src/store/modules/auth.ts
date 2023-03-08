@@ -8,7 +8,7 @@ const state = {
 	/**
 	 * 用户权限
 	 */
-	permissions: [] as API.PermissionsPoint[],
+	permissions: [] as API.Interface.PermissionsPoint[],
 };
 
 type State = typeof state;
@@ -26,7 +26,7 @@ const mutations = {
 	/**
 	 * 设置授权数据
 	 */
-	setAuthData(state: State, value: API.UserInfo): void {
+	setAuthData(state: State, value: API.Interface.UserInfo): void {
 		state.id = value.id;
 		state.username = value.username;
 		state.token = value.token;
@@ -46,7 +46,10 @@ const mutations = {
 	 * 设置权限
 	 * @param permissions
 	 */
-	setPermissions(state: State, permissions: API.PermissionsPoint[]): void {
+	setPermissions(
+		state: State,
+		permissions: API.Interface.PermissionsPoint[]
+	): void {
 		state.permissions = permissions;
 	},
 };

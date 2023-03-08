@@ -1,6 +1,4 @@
-import { launcher } from '..';
-import { UserInfo, PermissionsPoint } from '../interface';
-import { getUserInfo } from '../defaultResponse';
+import { launcher, Interface, DefaultResponse } from '..';
 
 /**
  * 登录
@@ -9,7 +7,7 @@ import { getUserInfo } from '../defaultResponse';
  */
 export function Login(username: string, password: string) {
 	return launcher.post<
-		UserInfo,
+		Interface.UserInfo,
 		{
 			username: string;
 			password: string;
@@ -21,7 +19,7 @@ export function Login(username: string, password: string) {
 			password,
 		},
 		{
-			defaultResponse: getUserInfo(),
+			defaultResponse: DefaultResponse.getUserInfo(),
 		}
 	);
 }
@@ -31,7 +29,7 @@ export function Login(username: string, password: string) {
  * @param userId 用户ID
  */
 export function getUserPermissions(userId: number) {
-	return launcher.get<PermissionsPoint[], number>(
+	return launcher.get<Interface.PermissionsPoint[], number>(
 		'/authentication/user/getpermissions',
 		{
 			userId,

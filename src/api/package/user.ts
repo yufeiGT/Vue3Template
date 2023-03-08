@@ -1,6 +1,6 @@
-import { launcher } from '.';
-import { UserInfo, PermissionsPoint } from './interface';
-import { getUserInfo } from './defaultResponse';
+import { launcher } from '..';
+import { UserInfo, PermissionsPoint } from '../interface';
+import { getUserInfo } from '../defaultResponse';
 
 /**
  * 登录

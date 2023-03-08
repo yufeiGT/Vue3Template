@@ -39,5 +39,5 @@ export const launcher = new Launcher({
 });
 
 export * from './interface';
-
-export * as User from './user';
+export * as DefaultResponse from './defaultResponse';
+export * from './package';

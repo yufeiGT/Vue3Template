@@ -1,7 +1,7 @@
 <template>
 	<div class="home">
 		<p>Vue 模板</p>
-		<span>欢迎你：{{ store.state.auth.nickname }}</span>
+		<span>欢迎你：{{ store.state.auth.username }}</span>
 	</div>
 </template>
 

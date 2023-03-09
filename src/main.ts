@@ -5,7 +5,6 @@ import store from './store';
 import directives from './directives';
 
 import '@/assets/icons/index.js';
-import '@/assets/stylesheets/app.scss';
 
 import 'ant-design-vue';
 import 'ant-design-vue/dist/antd.dark.css';

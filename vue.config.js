@@ -5,6 +5,13 @@ module.exports = {
 	publicPath: VUE_APP_PublicPath,
 	productionSourceMap: false,
 	outputDir: '{{outputDir}}',
+	css: {
+		loaderOptions: {
+			sass: {
+				prependData: `@import "@/assets/stylesheets/global.scss";`,
+			},
+		},
+	},
 	chainWebpack: (config) => {
 		config.plugin('html').tap((args) => {
 			args[0].title = '{{title}}';

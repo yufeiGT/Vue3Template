@@ -20,12 +20,13 @@ export function toPixel(value: number | string): string {
 
 /**
  * 将曲线数据转换为图表数据
+ * @param axisKey 轴键值
  * @param curveData 曲线数据
  * @param keyList 项目键值列表
  */
 export function curveToData(
+	axisKey: string,
 	curveData: Array<{
-		dateTime: string | number;
 		[propName: string]: any;
 	}>,
 	keyList: string[]
@@ -38,7 +39,7 @@ export function curveToData(
 		keyList.forEach((key, index) => {
 			chartsData[index].push({
 				value: item[key],
-				index: item.dateTime,
+				index: item[axisKey],
 			});
 		});
 	});
@@ -90,46 +91,73 @@ export function computeData(
 	});
 }
 
-function rotatePoint(ptSrc, ptRotationCenter, angle) {
-	var a = ptRotationCenter.x;
-	var b = ptRotationCenter.y;
-	var x0 = ptSrc.x;
-	var y0 = ptSrc.y;
-	var rx =
-		a +
-		(x0 - a) * Math.cos((angle * Math.PI) / 180) -
-		(y0 - b) * Math.sin((angle * Math.PI) / 180);
-	var ry =
-		b +
-		(x0 - a) * Math.sin((angle * Math.PI) / 180) +
-		(y0 - b) * Math.cos((angle * Math.PI) / 180);
-	var json = { x: rx, y: ry };
-	return json;
+export enum Unit {
+	/**
+	 * 货币
+	 */
+	Money = 0,
+	/**
+	 * 电量
+	 */
+	Wh = 1,
+	/**
+	 * 功率
+	 */
+	W = 2,
 }
 
-/**
- * 获取旋转后点的位置
- * @param originPoint 原始点
- * @param centerPoint 中心点
- * @param angle 角度
- */
-export function getRotatePoint(
-	originPoint: { x: number; y: number },
-	centerPoint: {
-		x: number;
-		y: number;
+const unitMap: {
+	[propName: number]: {
+		/**
+		 * 步长
+		 */
+		step: number;
+		/**
+		 * 单位表
+		 */
+		units: string[];
+	};
+} = {
+	[Unit.Money]: {
+		step: 10000,
+		units: ['元', '万元', '亿元', '兆元'],
 	},
-	angle: number
+	[Unit.Wh]: {
+		step: 1000,
+		units: ['Wh', 'kWh', 'MWh', 'GWh'],
+	},
+	[Unit.W]: {
+		step: 1000,
+		units: ['W', 'kW', 'MW', 'GW'],
+	},
+};
+
+/**
+ * 单位转换
+ * @param unit 单位类型
+ * @param value 数值
+ * @param decimal 保留小数，默认两位
+ * @param defaultStep 默认起始单位
+ * @param base 转换基数
+ * @returns
+ */
+export function unitConversion(
+	unit: Unit,
+	value: number,
+	decimal = 2,
+	defaultStep = 0,
+	base = 10
 ) {
-	const radian = (angle * Math.PI) / 180;
+	const { step, units } = unitMap[unit];
+	const length = units.length - 1;
+	let originValue = value;
+	let i = defaultStep;
+	while (i < length && originValue > step * base) {
+		originValue = value / step;
+		i++;
+	}
 	return {
-		x:
-			centerPoint.x +
-			(originPoint.x - centerPoint.x) * Math.cos(radian) -
-			(originPoint.y - centerPoint.y) * Math.sin(radian),
-		y:
-			centerPoint.y +
-			(originPoint.x - centerPoint.x) * Math.sin(radian) +
-			(originPoint.y - centerPoint.y) * Math.cos(radian),
+		value: parseFloat(originValue.toFixed(decimal)),
+		unit: units[i],
 	};
 }

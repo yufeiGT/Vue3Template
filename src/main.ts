@@ -1,8 +1,8 @@
 import { createApp } from 'vue';
-import App from './App.vue';
 import router from './router';
 import store from './store';
 import directives from './directives';
+import App from './App.vue';
 
 import '@/assets/icons/index.js';
 

@@ -23,13 +23,15 @@ export function toPixel(value: number | string): string {
  * @param axisKey 轴键值
  * @param curveData 曲线数据
  * @param keyList 项目键值列表
+ * @param format 对数据项进行处理
  */
 export function curveToData(
 	axisKey: string,
 	curveData: Array<{
 		[propName: string]: any;
 	}>,
-	keyList: string[]
+	keyList: string[],
+	format?: (value: SeriesData) => SeriesData
 ): SeriesData[][] {
 	const chartsData: SeriesData[][] = [];
 	keyList.forEach(() => {
@@ -37,10 +39,15 @@ export function curveToData(
 	});
 	(curveData || []).forEach((item) => {
 		keyList.forEach((key, index) => {
-			chartsData[index].push({
+			const series = {
 				value: item[key],
 				index: item[axisKey],
-			});
+			};
+			if (Spanner.isFunction(format)) {
+				chartsData[index].push(format(series));
+			} else {
+				chartsData[index].push(series);
+			}
 		});
 	});
 	return chartsData;
@@ -104,6 +111,14 @@ export enum Unit {
 	 * 功率
 	 */
 	W = 2,
+	/**
+	 * 电压
+	 */
+	V = 3,
+	/**
+	 * 电流
+	 */
+	A = 4,
 }
 
 const unitMap: {
@@ -129,6 +144,14 @@ const unitMap: {
 	[Unit.W]: {
 		step: 1000,
 		units: ['W', 'kW', 'MW', 'GW'],
+	},
+	[Unit.V]: {
+		step: 1000,
+		units: ['V', 'kV'],
+	},
+	[Unit.A]: {
+		step: 1000,
+		units: ['A', 'kA'],
 	},
 };
 

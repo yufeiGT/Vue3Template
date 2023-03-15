@@ -6,11 +6,11 @@
 </template>
 
 <script lang="ts" setup>
-import { Store, useStore } from 'vuex';
+import { useStore } from 'vuex';
 
-import { State } from '@/store';
+import { Store } from '@/store';
 
-const store = useStore() as Store<State>;
+const store = useStore() as Store;
 </script>
 
 <style lang="scss" scoped>

@@ -46,12 +46,12 @@
 <script lang="ts" setup>
 import { ref, Ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { Store, useStore } from 'vuex';
+import { useStore } from 'vuex';
 import { Button, Input, message } from 'ant-design-vue';
 
-import { State } from '@/store';
+import { Store } from '@/store';
 
-const store = useStore() as Store<State>;
+const store = useStore() as Store;
 const router = useRouter();
 
 const isLoading = ref(false);

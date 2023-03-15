@@ -1,4 +1,7 @@
-import { launcher, Interface, DefaultResponse } from '..';
+import * as Interface from '@/interface';
+import * as DefaultResponse from '@/defaultResponse';
+
+import { launcher } from './launcher';
 
 /**
  * 登录

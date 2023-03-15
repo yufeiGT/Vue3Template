@@ -1,14 +1,16 @@
 import { LauncherError } from '@~crazy/launcher';
 
+import * as Interface from '@/interface';
+import * as DefaultResponse from '@/defaultResponse';
 import * as API from '@/api';
 import { Store } from '..';
 
 const state = {
-	...API.DefaultResponse.getUserInfo(),
+	...DefaultResponse.getUserInfo(),
 	/**
 	 * 用户权限
 	 */
-	permissions: [] as API.Interface.PermissionsPoint[],
+	permissions: [] as Interface.PermissionsPoint[],
 };
 
 type State = typeof state;
@@ -26,7 +28,7 @@ const mutations = {
 	/**
 	 * 设置授权数据
 	 */
-	setAuthData(state: State, value: API.Interface.UserInfo): void {
+	setAuthData(state: State, value: Interface.UserInfo): void {
 		state.id = value.id;
 		state.username = value.username;
 		state.token = value.token;
@@ -36,7 +38,7 @@ const mutations = {
 	 * 清空授权数据
 	 */
 	clearAuthData(state: State): void {
-		const { id, username, token } = API.DefaultResponse.getUserInfo();
+		const { id, username, token } = DefaultResponse.getUserInfo();
 		state.id = id;
 		state.username = username;
 		state.token = token;
@@ -48,7 +50,7 @@ const mutations = {
 	 */
 	setPermissions(
 		state: State,
-		permissions: API.Interface.PermissionsPoint[]
+		permissions: Interface.PermissionsPoint[]
 	): void {
 		state.permissions = permissions;
 	},

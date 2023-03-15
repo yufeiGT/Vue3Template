@@ -6,6 +6,7 @@ import App from './App.vue';
 
 import '@/assets/icons/index.js';
 
+import '@/assets/stylesheets/app.css';
 import 'ant-design-vue';
 import 'ant-design-vue/dist/antd.dark.css';
 

@@ -8,8 +8,8 @@ import { launcher } from './launcher';
  * @param username 用户名
  * @param password 密码
  */
-export function Login(username: string, password: string) {
-	return launcher.post<
+export async function Login(username: string, password: string) {
+	return await launcher.post<
 		Interface.UserInfo,
 		{
 			username: string;

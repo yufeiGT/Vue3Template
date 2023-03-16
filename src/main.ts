@@ -6,8 +6,8 @@ import App from './App.vue';
 
 import '@/assets/icons/index.js';
 
-import '@/assets/stylesheets/app.scss';
 import 'ant-design-vue';
 import 'ant-design-vue/dist/antd.dark.css';
+import '@/assets/stylesheets/app.scss';
 
 createApp(App).use(store).use(router).use(directives).mount('#app');

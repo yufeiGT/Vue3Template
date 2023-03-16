@@ -119,6 +119,10 @@ export enum Unit {
 	 * 电流
 	 */
 	A = 4,
+	/**
+	 * 无功功率
+	 */
+	Var = 5,
 }
 
 const unitMap: {
@@ -152,6 +156,10 @@ const unitMap: {
 	[Unit.A]: {
 		step: 1000,
 		units: ['A', 'kA'],
+	},
+	[Unit.Var]: {
+		step: 1000,
+		units: ['Var', 'kVar', 'MVar', 'GVar'],
 	},
 };
 

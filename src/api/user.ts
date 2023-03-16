@@ -31,8 +31,8 @@ export async function Login(username: string, password: string) {
  * 获取用户权限
  * @param userId 用户ID
  */
-export function getUserPermissions(userId: number) {
-	return launcher.get<Interface.PermissionsPoint[], number>(
+export async function getUserPermissions(userId: number) {
+	return await launcher.get<Interface.PermissionsPoint[], number>(
 		'/authentication/user/getpermissions',
 		{
 			userId,

@@ -13,6 +13,7 @@
 		"ant-design-vue": "^3.2.15",
 		"echarts": "^5.4.0",
 		"element-resize-detector": "^1.2.4",
+		"kc-global": "0.0.1",
 		"tslib": "^2.4.1",
 		"vue": "^3.0.0",
 		"vue-router": "^4.0.0-0",

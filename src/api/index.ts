@@ -1,2 +1,3 @@
 export * from './launcher';
-export * as User from './user';
+export * as Auth from './lib/auth';
+export * as User from './lib/user';

@@ -44,57 +44,27 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, Ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { useStore } from 'vuex';
-import { Button, Input, message } from 'ant-design-vue';
+import { ref, onMounted } from 'vue';
+import { Button, Input } from 'ant-design-vue';
 
-import { Store } from '@/store';
+import { use } from './use';
 
-const store = useStore() as Store;
-const router = useRouter();
+const {
+	isLoading,
+	username,
+	password,
+	usernameError,
+	passwordError,
+	setElement,
+	Login,
+} = use();
 
-const isLoading = ref(false);
-const usernameInput: Ref<HTMLInputElement> = ref(null);
-const passwordInput: Ref<HTMLInputElement> = ref(null);
-const username = ref('');
-const password = ref('');
-const usernameError = ref('');
-const passwordError = ref('');
+const usernameInput = ref<HTMLInputElement>(null);
+const passwordInput = ref<HTMLInputElement>(null);
 
-if (process.env.NODE_ENV === 'development') {
-	username.value = 'sky';
-	password.value = 'zxc@9527';
-}
-
-function Login() {
-	if (!username.value.length) {
-		usernameError.value = '用户名不能为空';
-		usernameInput.value.focus();
-		return;
-	}
-	if (!password.value.length) {
-		passwordError.value = '密码不能为空';
-		passwordInput.value.focus();
-		return;
-	}
-	isLoading.value = true;
-	store
-		.dispatch('Login', {
-			username: username.value,
-			password: password.value,
-		})
-		.then((res) => {
-			isLoading.value = false;
-			router.push({
-				path: '/',
-			});
-		})
-		.catch((e) => {
-			isLoading.value = false;
-			message.error(e.message);
-		});
-}
+onMounted(() => {
+	setElement(usernameInput.value, passwordInput.value);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -120,7 +90,7 @@ function Login() {
 
 			p {
 				overflow: hidden;
-				font-size: px_2_rem(30px);
+				font-size: rem(30px);
 				margin: 0;
 			}
 		}

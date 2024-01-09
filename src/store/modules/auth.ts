@@ -1,16 +1,17 @@
 import { LauncherError } from '@~crazy/launcher';
 
-import * as Interface from '@/interface';
-import * as DefaultResponse from '@/defaultResponse';
+import * as Entity from '@/entity';
+
 import * as API from '@/api';
+
 import { Store } from '..';
 
 const state = {
-	...DefaultResponse.getUserInfo(),
+	...Entity.Auth.UserInfo.getDefault(),
 	/**
 	 * 用户权限
 	 */
-	permissions: [] as Interface.PermissionsPoint[],
+	permissions: [] as Entity.Auth.PermissionsPoint[],
 };
 
 type State = typeof state;
@@ -28,7 +29,7 @@ const mutations = {
 	/**
 	 * 设置授权数据
 	 */
-	setAuthData(state: State, value: Interface.UserInfo): void {
+	setAuthData(state: State, value: Entity.Auth.UserInfo): void {
 		state.id = value.id;
 		state.username = value.username;
 		state.token = value.token;
@@ -38,7 +39,7 @@ const mutations = {
 	 * 清空授权数据
 	 */
 	clearAuthData(state: State): void {
-		const { id, username, token } = DefaultResponse.getUserInfo();
+		const { id, username, token } = Entity.Auth.UserInfo.getDefault();
 		state.id = id;
 		state.username = username;
 		state.token = token;
@@ -50,7 +51,7 @@ const mutations = {
 	 */
 	setPermissions(
 		state: State,
-		permissions: Interface.PermissionsPoint[]
+		permissions: Entity.Auth.PermissionsPoint[]
 	): void {
 		state.permissions = permissions;
 	},
@@ -60,9 +61,9 @@ const actions = {
 	/**
 	 * 登录
 	 */
-	Login(store: Store, param: { username: string; password: string }) {
+	Login(store: Store, params: Entity.Auth.UserInfo.RequestParams) {
 		return new Promise(async (resolve, reject) => {
-			API.User.Login(param.username, param.password)
+			API.Auth.Login(params)
 				.then(async (res) => {
 					store.commit('setAuthData', res.data);
 					const { id } = (store.state as unknown) as State;
@@ -94,7 +95,7 @@ const actions = {
 	 */
 	GetPermissions({ commit }: Store, userId: number) {
 		return new Promise((resolve, reject) => {
-			API.User.getUserPermissions(userId)
+			API.Auth.getUserPermissions(userId)
 				.then((res) => {
 					commit('setPermissions', res.data);
 					resolve(res);

@@ -1,16 +1,15 @@
 import { Launcher } from '@~crazy/launcher';
+import { message } from 'ant-design-vue';
 
 import store from '@/store';
 import router from '@/router';
-
-import { message } from 'ant-design-vue';
 
 const { VUE_APP_RequestBaseURL, VUE_APP_WithCredentials } = process.env;
 
 export const launcher = new Launcher({
 	baseUrl: VUE_APP_RequestBaseURL,
 	credentials: VUE_APP_WithCredentials === 'true',
-	timeoutAgain: true,
+	timeoutAgain: false,
 	requestOptions: {
 		headers: {},
 	},

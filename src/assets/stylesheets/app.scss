@@ -3,7 +3,11 @@
 	-webkit-tap-highlight-color: transparent;
 	font-family: 'Microsoft YaHei', '微软雅黑', 'Helvetica Neue', Helvetica,
 		'PingFang SC', 'Hiragino Sans GB', Arial, sans-serif;
-	color: #fff;
+}
+
+body {
+	overflow: hidden;
+	background-color: #041228;
 }
 
 p,

@@ -379,7 +379,7 @@ export * as UserAuth from './lib/userAuth.ts';
 
 ```JavaScript
 // userAuth.ts
-export enum UserType = 'A' | 'B' | 'C';
+export type UserType = 'A' | 'B' | 'C';
 export namespace UserType {
 	/**
 	 * 获取描述

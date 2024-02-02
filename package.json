@@ -10,7 +10,7 @@
 	"dependencies": {
 		"@ant-design/icons-vue": "^7.0.1",
 		"@kotron/global": "0.0.2",
-		"@~crazy/launcher": "0.0.18",
+		"@~crazy/launcher": "0.0.19",
 		"@~crazy/spanner": "0.0.13",
 		"ant-design-vue": "^4.0.6",
 		"echarts": "^5.4.0",

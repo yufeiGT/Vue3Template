@@ -9,16 +9,18 @@ import { launcher } from '../launcher';
  * @param params
  */
 export function Login(params: Entity.Auth.UserInfo.RequestParams) {
-	return {
-		data: {
-			id: 888,
-			username: params.username,
-			token: 'token_test_admin',
-		},
-		code: 200,
-		message: '登录成功',
-		dateTime: Date.now(),
-	} as Launcher.Response<Entity.Auth.UserInfo>;
+	return new Promise<Launcher.Response<Entity.Auth.UserInfo>>((resolve) => {
+		resolve({
+			data: {
+				id: 888,
+				username: params.username,
+				token: 'token_test_admin',
+			},
+			code: 200,
+			message: '登录成功',
+			dateTime: Date.now(),
+		});
+	});
 	// return launcher.post<
 	// 	Entity.Auth.UserInfo,
 	// 	Entity.Auth.UserInfo.RequestParams

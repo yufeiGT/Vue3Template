@@ -1,4 +1,4 @@
-import { LauncherError } from '@~crazy/launcher';
+import { Launcher } from '@~crazy/launcher';
 
 import * as Entity from '@/entity';
 
@@ -76,7 +76,7 @@ const actions = {
 					}
 					resolve(res);
 				})
-				.catch((err: LauncherError) => {
+				.catch((err: Launcher.ResponseError) => {
 					console.error(err);
 					store.commit('setAuthData', err.options.defaultResponse);
 					reject(err);
@@ -100,7 +100,7 @@ const actions = {
 					commit('setPermissions', res.data);
 					resolve(res);
 				})
-				.catch((err: LauncherError) => {
+				.catch((err: Launcher.ResponseError) => {
 					commit('setPermissions', err.options.defaultResponse);
 					reject(err);
 				});

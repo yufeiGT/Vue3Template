@@ -17,8 +17,8 @@
 		"element-resize-detector": "^1.2.4",
 		"fortress-ui": "0.0.2",
 		"tslib": "^2.4.1",
-		"vue": "^3.3.4",
-		"vue-router": "^4.1.0",
+		"vue": "3.4.23",
+		"vue-router": "4.3.2",
 		"vuex": "^4.1.0",
 		"vuex-persistedstate": "^4.1.0"
 	},

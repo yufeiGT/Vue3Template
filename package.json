@@ -1,5 +1,5 @@
 {
-	"name": "{{name}",
+	"name": "{{name}}",
 	"version": "{{version}}",
 	"private": true,
 	"scripts": {

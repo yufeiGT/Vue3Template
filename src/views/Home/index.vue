@@ -13,7 +13,7 @@
 
 <script lang="ts" setup>
 import { Table } from 'ant-design-vue';
-import { Flex } from 'fortress-ui';
+import { Flex } from '@kotron/fortress-ui';
 
 import { use, useTableData } from './use';
 

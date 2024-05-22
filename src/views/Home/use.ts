@@ -1,4 +1,4 @@
-import { computed, onBeforeUnmount, ref } from 'vue';
+import { onBeforeUnmount, ref } from 'vue';
 import { onBeforeRouteLeave } from 'vue-router';
 import { TableColumnProps } from 'ant-design-vue';
 import { Condition, Requester, Clock } from '@kotron/global';
@@ -54,14 +54,11 @@ export function useTableData(
 		);
 	}
 
-	const { call, remove } = Clock.add(
-		query,
-		{
-			removeHook: [onBeforeRouteLeave, onBeforeUnmount],
-			interval: 1000 * 10,
-			immediate: true,
-		}
-	);
+	const { call, remove } = Clock.add(query, {
+		removeHook: [onBeforeRouteLeave, onBeforeUnmount],
+		interval: 1000 * 10,
+		immediate: true,
+	});
 
 	condition.on('push', () => call());
 

@@ -1,5 +1,5 @@
 {
-	"name": "{{name}}",
+	"name": "{{name}",
 	"version": "{{version}}",
 	"private": true,
 	"scripts": {
@@ -9,13 +9,13 @@
 	},
 	"dependencies": {
 		"@ant-design/icons-vue": "^7.0.1",
+		"@kotron/fortress-ui": "0.0.2",
 		"@kotron/global": "0.0.2",
 		"@~crazy/launcher": "0.0.19",
 		"@~crazy/spanner": "0.0.13",
 		"ant-design-vue": "^4.0.6",
 		"echarts": "^5.4.0",
 		"element-resize-detector": "^1.2.4",
-		"fortress-ui": "0.0.2",
 		"tslib": "^2.4.1",
 		"vue": "3.4.23",
 		"vue-router": "4.3.2",

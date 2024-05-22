@@ -24,7 +24,7 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router';
 import { Image, Button } from 'ant-design-vue';
-import { Flex, CssUnits } from 'fortress-ui';
+import { Flex, CssUnits } from '@kotron/fortress-ui';
 
 const router = useRouter();
 

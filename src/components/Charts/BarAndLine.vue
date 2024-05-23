@@ -19,7 +19,7 @@ import { computed, watch, ref } from 'vue';
 import { Empty } from 'ant-design-vue';
 import { EChartsOption } from 'echarts';
 import * as Spanner from '@~crazy/spanner';
-import { Flex } from 'fortress-ui';
+import { Flex } from '@kotron/fortress-ui';
 import * as echarts from 'echarts';
 
 import BaseVue from './Base.vue';

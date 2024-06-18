@@ -1,5 +1,5 @@
 <template>
-	<Flex fill>
+	<Flex style="width: 100%; height: 100%;">
 		<Flex vert="auto" fill v-if="empty" align="center">
 			<Empty :image="Empty.PRESENTED_IMAGE_SIMPLE"></Empty>
 		</Flex>

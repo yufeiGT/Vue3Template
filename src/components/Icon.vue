@@ -1,5 +1,13 @@
 <template>
-	<svg class="svg-icon" :class="className" aria-hidden="true">
+	<svg
+		class="svg-icon"
+		:class="className"
+		aria-hidden="true"
+		:style="{
+			width,
+			height,
+		}"
+	>
 		<use :xlink:href="`#icon-${icon}`" />
 	</svg>
 </template>
@@ -52,7 +60,5 @@ function toValue(value: string | number) {
 .svg-icon {
 	overflow: hidden;
 	fill: currentColor;
-	width: v-bind(width);
-	height: v-bind(height);
 }
 </style>

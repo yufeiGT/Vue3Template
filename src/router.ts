@@ -1,3 +1,4 @@
+import { RouteRecordRaw } from 'vue-router';
 import { Router } from '@kotron/global';
 
 import store from '@/store';
@@ -13,29 +14,32 @@ const routerConfig: Router.Config[] = [
 		name: 'Home',
 		component: HomeVue,
 	},
+];
+
+const routes: RouteRecordRaw[] = [
 	{
-		label: '登录',
+		path: '/login',
 		name: 'Login',
 		component: LoginVue,
 	},
 ];
 
 if (process.env.NODE_ENV == 'development') {
-	routerConfig.push({
-		label: '测试',
+	routes.push({
+		path: '/test',
 		name: 'Test',
 		component: TestVue,
 	});
 }
 
+routes.push({
+	path: '/:pathMatch(.*)',
+	name: 'NotFound',
+	component: NotFoundVue,
+});
+
 const { router } = Router.use(routerConfig, {
-	routes: [
-		{
-			path: '/:pathMatch(.*)',
-			name: 'NotFound',
-			component: NotFoundVue,
-		},
-	],
+	routes,
 });
 
 router.beforeEach((to, from, next) => {

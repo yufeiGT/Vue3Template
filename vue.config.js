@@ -12,6 +12,9 @@ module.exports = {
 			},
 		},
 	},
+	configureWebpack: (config) => {
+		config.devtool = 'source-map';
+	},
 	chainWebpack: (config) => {
 		config.plugin('html').tap((args) => {
 			args[0].title = '{{title}}';

@@ -1,5 +1,5 @@
 import { App, createApp, nextTick } from 'vue';
-import * as Spanner from '@~crazy/spanner';
+import * as Spanner from '@kotron/spanner';
 
 import ScrollToTop from './ScrollToTop.vue';
 

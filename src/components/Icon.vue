@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { CssUnits } from '@kotron/fortress-ui';
+import { CssUnits } from '@gluttons/fortress-ui';
 
 const props = withDefaults(
 	defineProps<{

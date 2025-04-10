@@ -5,7 +5,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { EChartsOption } from 'echarts';
-import * as Spanner from '@kotron/spanner';
+import * as Spanner from '@gluttons/spanner';
 
 import BaseVue from './Base.vue';
 

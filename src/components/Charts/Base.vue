@@ -7,7 +7,7 @@ import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue';
 import * as echarts from 'echarts';
 import { EChartsOption } from 'echarts';
 import elementResizeDetectorMaker from 'element-resize-detector';
-import * as Spanner from '@kotron/spanner';
+import * as Spanner from '@gluttons/spanner';
 
 const erd = elementResizeDetectorMaker({
 	strategy: 'scroll',

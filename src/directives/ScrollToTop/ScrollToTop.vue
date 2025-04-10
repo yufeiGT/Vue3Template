@@ -5,13 +5,13 @@
 </template>
 
 <script lang="ts" setup>
-import { CssUnits } from 'fortress-ui';
+import { CssUnits } from '@gluttons/fortress-ui';
 
 import IconVue from '@/components/Icon.vue';
 </script>
 
 <style lang="scss" scoped>
-$size: rem(50px);
+$size: _rem(50px);
 
 .directive-scroll-top-top {
 	overflow: hidden;
@@ -19,13 +19,13 @@ $size: rem(50px);
 	width: $size;
 	height: $size;
 	background: rgba(127, 164, 222, 0.35);
-	border-radius: rem(4px);
+	border-radius: _rem(4px);
 	right: $size;
 	cursor: pointer;
 	text-align: center;
 	line-height: $size;
 	color: #ccf0ff;
-	padding: rem(11px);
+	padding: _rem(11px);
 	z-index: 99;
 
 	&:hover {

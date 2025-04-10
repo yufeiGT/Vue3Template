@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import 'ant-design-vue';
 import 'ant-design-vue/dist/reset.css';
-import { Clock } from '@kotron/global';
+import { Clock } from '@gluttons/es-tools';
 
 import '@/assets/icons/index.js';
 import '@/assets/stylesheets/app.scss';

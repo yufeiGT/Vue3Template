@@ -1,7 +1,7 @@
 import { onBeforeUnmount, ref } from 'vue';
 import { onBeforeRouteLeave } from 'vue-router';
 import { TableColumnProps } from 'ant-design-vue';
-import { Condition, Requester, Clock } from '@kotron/global';
+import { Condition, Requester, Clock } from '@gluttons/es-tools';
 import { Launcher } from '@~crazy/launcher';
 
 import * as API from '@/api';

@@ -24,7 +24,7 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router';
 import { Image, Button } from 'ant-design-vue';
-import { Flex, CssUnits } from '@kotron/fortress-ui';
+import { Flex, CssUnits } from '@gluttons/fortress-ui';
 
 const router = useRouter();
 
@@ -36,10 +36,10 @@ function goHome() {
 <style lang="scss" scoped>
 p {
 	color: #d4e3fa;
-	font-size: rem(16px);
+	font-size: _rem(16px);
 
 	&.title {
-		font-size: rem(48px);
+		font-size: _rem(48px);
 	}
 }
 .ant-btn {

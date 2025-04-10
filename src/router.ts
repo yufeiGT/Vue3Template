@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from 'vue-router';
-import { Router } from '@kotron/global';
+import { Router } from '@gluttons/es-tools';
 
 import store from '@/store';
 

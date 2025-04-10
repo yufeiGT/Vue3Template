@@ -18,8 +18,8 @@
 import { computed, watch, ref } from 'vue';
 import { Empty } from 'ant-design-vue';
 import { EChartsOption } from 'echarts';
-import * as Spanner from '@kotron/spanner';
-import { Flex } from '@kotron/fortress-ui';
+import * as Spanner from '@gluttons/spanner';
+import { Flex } from '@gluttons/fortress-ui';
 import * as echarts from 'echarts';
 
 import BaseVue from './Base.vue';

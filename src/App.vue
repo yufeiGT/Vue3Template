@@ -15,7 +15,7 @@ import { ConfigProvider, theme } from 'ant-design-vue';
 import zhCN from 'ant-design-vue/es/locale/zh_CN';
 import * as dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-import { ConfigProvider as FortConfigProvider } from '@kotron/fortress-ui';
+import { ConfigProvider as FortConfigProvider } from '@gluttons/fortress-ui';
 
 dayjs.locale('zh-cn');
 

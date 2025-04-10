@@ -90,7 +90,7 @@ onMounted(() => {
 
 			p {
 				overflow: hidden;
-				font-size: rem(30px);
+				font-size: _rem(30px);
 				margin: 0;
 			}
 		}

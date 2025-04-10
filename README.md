@@ -8,6 +8,11 @@
 -   集成 @~crazy 工具包
 -   集成 @kotron 工具包
 
+#### 确保已经全局安装 Vue CLI 5 和 Webpack
+
+-   npm i @vue/cli -g
+-   npm i webpack webpack-cli -g
+
 #### 使用方法
 
 -   npm i 安装依赖模块
@@ -18,7 +23,7 @@
 
 ## 前端规范
 
--   制定人：燕青
+-   制定人：GT
 -   制定日期：2024 年 1 月 6 日
 -   修改日期：2024 年 1 月 6 日
 -   联系邮箱：769416198@qq.com

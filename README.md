@@ -6,7 +6,7 @@
 -   集成 TypeScript
 -   集成 Ant Design Vue
 -   集成 @~crazy 工具包
--   集成 @kotron 工具包
+-   集成 @gluttons 工具包
 
 #### 确保已经全局安装 Vue CLI 5 和 Webpack
 

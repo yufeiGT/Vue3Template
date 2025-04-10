@@ -2,19 +2,19 @@ $innerWidth: 1920px;
 $innerHeight: 1080px;
 $fontSize: 16px;
 
-@function rem($px) {
-	@return ($px / $fontSize) * 1rem;
+@function _rem($px) {
+	@return calc($px / $fontSize) * 1rem;
 }
 
 @function px_2_vw($px) {
-	@return $px * 100vw / $innerWidth;
+	@return calc($px * 100vw / $innerWidth);
 }
 
 @function px_2_vh($px) {
-	@return $px * 100vh / $innerHeight;
+	@return calc($px * 100vh / $innerHeight);
 }
 
-$spacing: rem(20px);
+$spacing: _rem(20px);
 
 $primaryColor: #041c47;
 $backgroundColor: #132d51;

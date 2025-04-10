@@ -8,7 +8,7 @@ module.exports = {
 	css: {
 		loaderOptions: {
 			sass: {
-				prependData: `@import "@/assets/stylesheets/global.scss";`,
+				additionalData: `@use "@/assets/stylesheets/global.scss";`,
 			},
 		},
 	},
@@ -45,7 +45,8 @@ module.exports = {
 			.end();
 	},
 	devServer: {
-		disableHostCheck: true,
+		historyApiFallback: true,
+		allowedHosts: 'all',
 		proxy: {
 			'/api': {
 				target: Vue_APP_ProxyUrl,

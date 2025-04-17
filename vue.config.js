@@ -47,6 +47,12 @@ module.exports = {
 	devServer: {
 		historyApiFallback: true,
 		allowedHosts: 'all',
+		client: {
+			overlay: {
+				errors: true,
+				warnings: false,
+			},
+		},
 		proxy: {
 			'/api': {
 				target: Vue_APP_ProxyUrl,

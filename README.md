@@ -1,7 +1,7 @@
 ## Vue 3 项目开发模板
 
 -   一套基于 Vue3 的项目模板
--   NodeJS 14.18.1
+-   NodeJS v20.18.0
 -   支持 Sass
 -   集成 TypeScript
 -   集成 Ant Design Vue
